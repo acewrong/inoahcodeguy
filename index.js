@@ -1,7 +1,8 @@
-document.addEventListener('DOMContentLoaded', () => {
+ document.addEventListener('DOMContentLoaded', () => {
 
     //greet with name and ask for bank info
     document.querySelector('form').addEventListener('submit', event => {
+      console.log("event fired")
       event.preventDefault()
 
       //taking in name submission
@@ -40,4 +41,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
         
 
-})
+ })
