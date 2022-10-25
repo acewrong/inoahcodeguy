@@ -2,20 +2,85 @@
 <html>
 <head>
     <title><!--Full Name--></title>
-    <link rel="stylesheet" href="F IS FOR FRIENDS_stylesheet.css">
+    <link href="bootstrap-5.2.2-dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1> <!-- My good friend(s) XXXX-->
+    <div class = "container text-center pt-3">
+        <h1> <!-- My good friend(s) XXXX-->
     
-    </h1>
+        </h1>
+    </div>
+    <br>
 
-    <h2><!-- A quick blurb about where I know them from and why they are important to me. Include a joke and a picture.-->
+    <!-- add image and desc text next to each other-->
+    <div class = "row">
+        <div class="col-xl-6 align-middle text-center">
+            <h2 id="friendDesc">
+                <!-- initialized in script-->
+            </h2>
+        </div>
+        <div class="col-sm-4  align-middle border img-fluid border-info text-center">
+            <img id="friendImg"; src="srchere"; class="img-fluid"; alt="picture of friend name"; draggable="true">
+        </div>
+    </div>
+    <div class="row">
+        <div class="text-center col-sm-5">
+            <p id="anecdote1">
+                <!-- short anecdote or blurb about friend-->
+            </p>
+        </div>
+        <div class="text-center col-sm-2">
+            <!-- link to something related to friend or their interests-->
+            <a id="anecdotelink" href="linkhere">Link description</a>
+        </div>
+        <div class="text-center col-sm-5">
+            <p id="anecdote2">
+                <!-- short anecdote or blurb about friend-->
+            </p>
+        </div>
+    </div>
 
-    </h2>
+    <script>
+        const friendinfo = [
+            [
+                //pic src locations
 
-    <p><!-- More details about things we have done together. External links are good here.-->        
-        
-    </p>
+            ],
+            [
+                //descriptions to go with pic
+                
+            ],
+            [
+                //pic titles
+                
+            ]
+        ];
+    const descdrag = "HEY PUT FRIEND BACK";
+    let i = 0;
+    let friendlength = friendinfo[0].length;
 
+    //initialize document with desc and img
+    document.getElementById("friendDesc").innerHTML=friendinfo[1][0];
+    //be goofy and make it so that the page yells at you to drop Kali when she gets dragged
+    document.getElementById("friendImg").addEventListener("dragend", function(){
+        document.getElementById("friendDesc").innerHTML=friendinfo[1][i%friendlength];
+    });
+    document.getElementById("friendImg").addEventListener("dragstart", function(){
+        document.getElementById("friendDesc").innerHTML=descdrag;
+    });
+    
+    //iterate through a set of pictures and descriptions
+    document.getElementById("friendImg").addEventListener("click", function(){
+        i+=1;
+        document.getElementById("friendDesc").innerHTML=friendinfo[1][i%friendlength];
+        document.getElementById("friendImg").src=friendinfo[0][i%friendlength];
+        document.getElementById("friendImg").title=friendinfo[2][i%friendlength];
+    });
+
+    //next ideas:
+    //make the picture show up to the side of h2
+    //make the picture a variable width by setting it to divide the naturalwidth/naturalheight by an int until it's less than 400px(?) wide or 400px(?) tall
+    </script>
+    <script src="bootstrap-5.2.2-dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

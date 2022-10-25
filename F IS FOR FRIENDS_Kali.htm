@@ -2,51 +2,76 @@
 <html>
 <head>
     <title>Kali Sullivan</title>
-    <link rel="stylesheet" href="F IS FOR FRIENDS_stylesheet.css">
+    <!-- <link rel="stylesheet" href="F IS FOR FRIENDS_stylesheet.css"> -->
+    <link href="bootstrap-5.2.2-dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+    <div class = "container text-center pt-3">
     <h1>
     My good friend Kali
     </h1>
+    </div>
     <br>
 
+    <!-- add image and desc text next to each other-->
+    <div class = "row">
+    <div class = "col-xl-6 align-middle text-center">
+    
     <h2 id="friendDesc">
-        As my best friend up in Boston, Kali is doing such a great job of making me love it here!
-<br>She is a student in the Tufts University <abbr title="Doctor of Medicine and Master of Business Administration">MD/MBA</abbr> (more than just one letter different from MDMA) program.<br>
-    For a person in med school she does a lot of things that are super cool! She loves to bike (and now I do too), climb, and eat BAGELS. (see below for every bagel's last moments)<br>
-    <br>
+        <!-- initialized in script -->
     </h2>
-    <div><img id="friendImg"; src="kali eating a bagel.jpg" alt="The best death a bagel could ask for" style="width:290px;height:386px;" draggable="true";></div>
-    <p>
+
+    </div>
+    <div class = "col-sm-4  align-middle border img-fluid border-info text-center">
+        <img id="friendImg"; src="kali eating a bagel.jpg"; class="img-fluid"; alt="Picture of Kali"; draggable="true";>
+    </div> 
+    </div>
+    <div class = "row">
+    <div class = "text-center col-sm-5">
+    <p id = "anecdote1">
         When I first started getting to know Kali I thought she was superhuman because she does just so much stuff all the time (again lots of biking) 
         and I couldn't fathom her having the time or energy to get so much into each day! She also seems to write a lot of papers and TA for courses and 
-        also write up new courses it's just ridonkulous yall.<br>
-        <a href="https://doi.org/10.1093/intqhc/mzac061"> A Kali Kaizen paper</a>
-    <br>
+        also write up new courses it's just ridonkulous yall.
+    </p>
+    </div>
+    <div class = "text-center col-sm-2">
+    <a id="anecdoteLink" href="https://doi.org/10.1093/intqhc/mzac061"> A Kali Kaizen paper</a>
+    </div>
+    <div class="text-center col-sm-5">
+    <p id="anecdote2">
         Kali and I have had some great adventures including trips to Maine, New Hampshire, and the happenin parts of Cambridge. 
         We also like to just hang out and I love when things are just chill at home with Avatar or a record player. Kali has brought 
         good vibes into my life and been an anchor during my transition period (read as <small>hard breakup</small>).
     </p>
+    </div>
+    </div>
 
     <script>
         const friendinfo = [
             [
-            //pic src locations
-            "kali eating a bagel.jpg"
-            ,"Kali and noah sandwich mtn.jpg"],
+                //pic src locations
+                "kali eating a bagel.jpg"
+                ,"Kali and noah sandwich mtn.jpg"],
             [
-            //descriptions to go with pic
-            "As my best friend up in Boston, Kali is doing such a great job of making me love it here!\
-            <br>She is a student in the Tufts University <abbr title=\"Doctor of Medicine and Master of Business Administration\">MD/MBA</abbr> (more than just one letter different from MDMA) program.<br>\
-            For a person in med school she does a lot of things that are super cool! She loves to bike (and now I do too), climb, and eat BAGELS. (see below for every bagel's last moments)"
-            ,"Kali and I have been on a couple hikes that were a lot of fun! We went snowshoeing one time (very cold but also beautiful I'm torn) to Hedgehog Mountaing <br>\
-            and another time we hiked to Sandwich Mountain. I don't know much but I do know that New Hampshire mountain names are pretty legitimately fun."
+                //descriptions to go with pic
+                "As my best friend up in Boston, Kali is doing such a great job of making me love it here!\
+                She is a student in the Tufts University <abbr title=\"Doctor of Medicine and Master of Business Administration\">MD/MBA</abbr> (more than just one letter different from MDMA) program.<br>\
+                For a person in med school she does a lot of things that are super cool! She loves to bike (and now I do too), climb, and eat BAGELS. (see pic for every bagel's last moments)"
+                ,"Kali and I have been on a couple hikes that were a lot of fun! We went snowshoeing one time (very cold but also beautiful I'm torn) to Hedgehog Mountaing <br>\
+                and another time we hiked to Sandwich Mountain. I don't know much but I do know that New Hampshire mountain names are pretty legitimately fun."
+            ],
+            [
+                //pic titles
+                "The best death a bagel could ask for"  
+                ,"Noah and Kali go to Sandwich Mtn!"     
             ]
         ];
     const descdrag = "HEY PUT KALI BACK";
     let i = 0;
     let friendlength = friendinfo[0].length;
 
+    //initialize document with desc and img
+    document.getElementById("friendDesc").innerHTML=friendinfo[1][0];
     //be goofy and make it so that the page yells at you to drop Kali when she gets dragged
     document.getElementById("friendImg").addEventListener("dragend", function(){
         document.getElementById("friendDesc").innerHTML=friendinfo[1][i%friendlength];
@@ -60,11 +85,9 @@
         i+=1;
         document.getElementById("friendDesc").innerHTML=friendinfo[1][i%friendlength];
         document.getElementById("friendImg").src=friendinfo[0][i%friendlength];
+        document.getElementById("friendImg").title=friendinfo[2][i%friendlength];
     });
-
-    //next ideas:
-    //make the picture show up to the side of h2
-    //make the picture a variable width by setting it to divide the naturalwidth/naturalheight by an int until it's less than 400px(?) wide or 400px(?) tall
     </script>
+    <script src="bootstrap-5.2.2-dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

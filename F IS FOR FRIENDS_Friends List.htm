@@ -2,18 +2,45 @@
 <html>
 <head>
     <title>Noah's Friend List</title>
-    <link rel="stylesheet" href="F IS FOR FRIENDS_stylesheet.css">
+    <link rel="stylesheet" href="bootstrap-5.2.2-dist/css/bootstrap.min.css">
 </head>
 <body>
-    <h1> <!-- My good friend(s) XXXX-->
-        Below are some of my good friends!<br>Click on their names to learn more about who they are and why I love them!
+    <h1 class="text-center"> <!-- My good friend(s) XXXX-->
+        Below are some of my good friends!<br>Click on their pictures to learn more about who they are and why I love them!
     </h1>
 
+    <div id="carouselFriendsList" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselFriendsList" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Kali"></button>
+            <button type="button" data-bs-target="#carouselFriendsList" data-bs-slide-to="1" aria-label="Sean and Rachel"></button>
+            <button type="button" data-bs-target="#carouselFriendsList" data-bs-slide-to="2" aria-label="Ryan"></button>
+          </div>
+        <div class="carousel-inner align-middle">
+          <div class="carousel-item active" id="kaliPic">
+            <img src="Kali and noah sandwich mtn.jpg" class="d-block w-50 img-fluid" alt="pic of kali" title="Click to learn about Kali!">
+          </div>
+          <div class="carousel-item" id="seanRachelPic">
+            <img src="Maine engagement party.jpg" class="d-block w-50" alt="pic of sean and rachel" title="Click to learn about Sean and Rachel!">
+          </div>
+          <div class="carousel-item" id="ryanPic">
+            <img src="bachelor bros in zion.jpg" class="d-block w-50" alt="pic of Ryan" title="Click to learn about Ryan!">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselFriendsList" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselFriendsList" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+      </div>
     <ol>
         <a href="F IS FOR FRIENDS_Kali.htm"><li>Kali Sullivan</li></a>
         <a href="F IS FOR FRIENDS_Ryan.htm"><li>Ryan Plunkett</li></a>
         <a href="F IS FOR FRIENDS_Sean and Rachel.htm"><li>Sean Sullivan and Rachel Prince</li></a>
     </ol>
 
+    <script src="bootstrap-5.2.2-dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
